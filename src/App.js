@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
-import { TodoList } from "./TodoList.js";
-import { TodoItem } from "./TodoItem.js";
-import { CreateTodoButtom } from "./CreateTodoButton.js";
+import { TodoList } from './TodoList';
+import { TodoItem } from './TodoItem';
+import { CreateTodoButton } from './CreateTodoButton';
 
 
 // import './App.css';
@@ -18,10 +18,17 @@ const todos = [
 
 
 function App() {
+const [searchValue, setSearchValue] = React.useState('');
+
+
   return (
    <>
       <TodoCounter />    
-      <TodoSearch />
+      <TodoSearch 
+      searchValue={searchValue} 
+      setSearchValue={setSearchValue}
+      
+      />
       <TodoList>
         {todos.map(todo =>(<TodoItem 
         key={todo.text} 
@@ -31,7 +38,7 @@ function App() {
         ))}
 
       </TodoList>
-      <CreateTodoButtom />      
+      <CreateTodoButton />      
    </>
   );
 }
